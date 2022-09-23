@@ -1,0 +1,25 @@
+package StringPractice;
+
+import java.util.Arrays;
+
+public class Task5 {
+    public static void main(String[] args) {
+        String value = "1234567890";
+        int n = 3;
+        String[] result = split(value, n);
+        System.out.println(Arrays.toString(result));
+    }
+
+    private static String[] split(String value, int n){
+        int arraysSize = (int)Math.ceil(value.length() / (double) n);
+        String[] result = new String[arraysSize];
+        int counter = 0;
+        for (int i = 0; i < value.length(); i += n) {
+            int endIndex = Math.min(value.length(), i + n);
+            String substring = value.substring(i, endIndex);
+            result[counter] = substring;
+            counter++;
+        }
+        return result;
+    }
+}
